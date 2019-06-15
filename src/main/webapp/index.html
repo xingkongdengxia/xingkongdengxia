@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>唯一</title>
+<link rel="stylesheet" type="text/css" href="/css/login.css" media="all" />
+</head>
+<script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<body>
+<!-- id:${user.id} <br>
+    userName: ${user.param_name} <br>
+    password: ${user.param_value} <br>
+  <button onclick="login()">测试</button>  -->
+  <div id="background">
+	<div class="bg-photo bg-photo-1" style="display: block;">
+		<font id="paizi">唯衣管理系统</font>
+		<div id="denglukung">
+			<h5 id="hz">用户登录</h5><hr id="hx" noshade=true>
+			<div id="yonghu"><input type="text" id="ming" onchange="qingxiaoxi()"></div>
+			<div id="mima"><input type="password" id="mi" onchange="qingxiaoxi()"></div>
+			<button id="denglu" onclick="login()"></button>
+			<span  id="xiaoxi"></span>
+		</div>
+	
+	</div>
+  </div>
+</body>
+<script type="text/javascript">
+//<c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+
+
+</script>
+</html>

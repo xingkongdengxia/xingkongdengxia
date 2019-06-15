@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace="com.weiyi.service.WeiyiuserMapper">
+
+<resultMap id="BaseResultMap" type="com.weiyi.entity.pojo.Weiyiuser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="param_name" property="param_name" jdbcType="VARCHAR" />
+    <result column="param_value" property="param_value" jdbcType="VARCHAR" />
+    <result column="power" property="power" jdbcType="CHAR" />
+</resultMap>
+  
+<sql id="Base_Column_List" >
+    id, param_name, param_value, power
+</sql>
+  
+  
+<select id="sel" resultMap="BaseResultMap" parameterType="com.weiyi.entity.pojo.Weiyiuser"> 
+        select
+    <include refid="Base_Column_List" />
+    from weiyidata.weiyiuser where 1=1
+    <if test="param_name != null" >
+     and param_name = #{param_name,jdbcType=VARCHAR}
+    </if>
+    <if test="param_value != null" >
+     and param_value = #{param_value,jdbcType=VARCHAR}
+    </if>
+    <if test="power != null" >
+     and power = #{power,jdbcType=CHAR}
+    </if>
+    <if test="id != null and id != 0" >
+     and id = #{id,jdbcType=INTEGER}
+    </if>
+</select> 
+
+ <insert id="insert" parameterType="com.weiyi.entity.pojo.Weiyiuser" >
+    insert into weiyidata.weiyiuser (param_name, param_value, power)
+    values (#{param_name,jdbcType=VARCHAR}, #{param_value,jdbcType=VARCHAR})
+    , #{power,jdbcType=CHAR})
+</insert>
+
+<update id="update" parameterType="com.weiyi.entity.pojo.Weiyiuser">
+	update weiyidata.weiyiuser
+    set param_name = #{param_name,jdbcType=VARCHAR},
+        param_value = #{param_value,jdbcType=VARCHAR}
+        power = #{power,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+</update>
+
+<delete id="del" parameterType="java.lang.Integer">
+	delete from weiyidata.weiyiuser
+    where id = #{id,jdbcType=INTEGER}
+</delete>
+
+</mapper> 

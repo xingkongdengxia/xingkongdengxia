@@ -1,0 +1,27 @@
+#data{
+	position: absolute;
+	left: 600px;
+  	top: 100px;
+}
+/* table,tr,td{
+	border-collapse:collapse;   表示将单元格中各小格之间的空隙进行合并
+	border:1px black solid;      定义边框样式
+}
+
+#usertable{
+
+width: 500px;
+height: 500px;
+text-align: center;
+} */
+#drive{
+	border:3px solid #000;
+	position: absolute;
+	left: 700px;
+  	top: 200px;
+  	width: 300px;
+  	height: 300px;
+  	background-color: white;
+  	display: none;
+  	
+}
