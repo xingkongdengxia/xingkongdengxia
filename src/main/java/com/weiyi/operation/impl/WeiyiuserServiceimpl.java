@@ -43,9 +43,11 @@ public class WeiyiuserServiceimpl implements WeiyiuserService{
 		log.info("WeiyiuserServiceimpl insert="+data.toString());
 		String param_name = data.get("param_name");
 		String param_value = data.get("param_value");
+		String power = data.get("power");
 		Weiyiuser weiyiuser = new Weiyiuser();
 		weiyiuser.setParam_name(param_name);
 		weiyiuser.setParam_value(param_value);
+		weiyiuser.setPower(power);
 		int i = weiyiuserMapper.insert(weiyiuser);
 		boolean flag = false;
 		if(i==1){
@@ -100,10 +102,12 @@ public class WeiyiuserServiceimpl implements WeiyiuserService{
 		String id = data.get("id");
 		String param_name = data.get("param_name");
 		String param_value = data.get("param_value");
+		String power = data.get("power");
 		Weiyiuser weiyiuser = new Weiyiuser();
 		weiyiuser.setId(Integer.parseInt(id));
 		weiyiuser.setParam_name(param_name);
 		weiyiuser.setParam_value(param_value);
+		weiyiuser.setPower(power);
 		
 		boolean flag = false;
 		int i = weiyiuserMapper.update(weiyiuser);

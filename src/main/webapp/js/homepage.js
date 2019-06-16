@@ -12,6 +12,7 @@ $(function(){//加载
 	
 	//修改
 	$("#update").click(function(){
+		
 		//获取复选框选中个数
 		var tabledata= $("#usertable").bootstrapTable('getSelections');
 		if(tabledata.length != 1){//判断有没有选择数据
@@ -24,6 +25,8 @@ $(function(){//加载
 			 $("#weiyiid").val(tabledata[0].id);
 			 $("#name").val(tabledata[0].param_name);
 			 $("#pwd").val(tabledata[0].param_value);
+			 $("#power").find("option[value='"+tabledata[0].power+"']").prop("selected",true);
+			 //$("#power option:contains('"+tabledata[0].power+"')").prop("selected", true);
 			 $("#pai").html("修改");
 			 $("#drive").show();//显示
 			
@@ -78,15 +81,16 @@ $(function(){//加载
 		var id = $("#weiyiid").val();  
 		var param_name = $("#name").val();  
 		var param_value = $("#pwd").val();  
+		var power=$("#power option:selected").val();
 		var url;
 		var string=$("#pai").html();
 		var value;
 		if(string == '修改'){
-			value = {"id":id,"param_name":param_name,"param_value":param_value};
+			value = {"id":id,"param_name":param_name,"param_value":param_value,"power":power};
 			url = '/weiyiuserControler/WeiyiuserByupdate';
 		}
 		if(string == '新增'){
-			value = {"param_name":param_name,"param_value":param_value};
+			value = {"param_name":param_name,"param_value":param_value,"power":power};
 			url = '/weiyiuserControler/WeiyiuserByinsert';
 		}
 		 
@@ -170,15 +174,15 @@ $(function(){//加载
 				 field: 'power',                
 				 title: '权限',                
 				 align: 'left' ,
-				 formatter: function (value, row, index) {
+				 formatter: function (value, row, index) {//id='power"+index+"'
 					 var option;
-					 option = "<select class='form-control' id='power'"+index+"'  disabled='disabled'>"
+					 option = "<select class='form-control'   disabled='disabled'>"
 					 var headOption ="<option value='' >未设置</option>";
 					 if(value =='0'){
-						 headOption = headOption + "<option value='"+value+"' selected>管理员</option>";
+						 headOption = headOption + "<option value='"+value+"' selected=\"selected\">管理员</option>";
 					 }
 					 if(value =='1'){
-						 headOption = headOption + "<option value='"+value+"' selected>普通员工</option>";
+						 headOption = headOption + "<option value='"+value+"' selected=\"selected\">普通员工</option>";
 					 }
 					 option = option+headOption+'</select>'
 					 return option;

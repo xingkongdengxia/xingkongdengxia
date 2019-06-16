@@ -31,7 +31,12 @@
 		<span id = "pai"></span><br><br><br>
 		<input type="hidden" id="weiyiid">
 		<span>账号</span><input type="text" id="name"><br>
-		<span>密码</span><input type="text" id="pwd"><br><br>
+		<span>密码</span><input type="text" id="pwd"><br>
+		<span>权限</span>
+		<select id="power">
+			<option value='0'>管理员</option>
+			<option value='1'>普通员工</option>
+		</select><br><br>
 		<button id="sum">提交</button>
 		<button id="cal">取消</button>
 	</center>
